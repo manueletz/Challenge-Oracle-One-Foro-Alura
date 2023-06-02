@@ -4,7 +4,7 @@
      <img width="200" heigth="200" src="https://user-images.githubusercontent.com/91544872/209678377-70b50b21-33de-424c-bed8-6a71ef3406ff.png">
 </p>
 
-Repositorio de la resolución del desafío del Challenge Back End de una API REST usando Spring para el Foro Alura,
+Repositorio de la resolución del desafío del Challenge Back End de una API REST usando Java y Spring para el Foro Alura,
 impartido por el Programa Oracle One en coordinación con Alura Latinoamérica.
 
 ✔️ **Historia**

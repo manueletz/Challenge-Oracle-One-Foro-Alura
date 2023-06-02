@@ -1,0 +1,14 @@
+CREATE DATABASE foro_alura;
+
+USE foro_alura;
+
+CREATE TABLE TOPICOS (
+id INT AUTO_INCREMENT,
+titulo VARCHAR(150),
+mensaje VARCHAR(4000),
+fecha_creacion DATE,
+estatus_topico VARCHAR(50),
+autor VARCHAR(150),
+curso VARCHAR(150),
+PRIMARY KEY (id)
+)Engine=InnoDB;
