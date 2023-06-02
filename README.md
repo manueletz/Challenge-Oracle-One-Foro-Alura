@@ -4,7 +4,7 @@
      <img width="200" heigth="200" src="https://user-images.githubusercontent.com/91544872/209678377-70b50b21-33de-424c-bed8-6a71ef3406ff.png">
 </p>
 
-Repositorio de la resolución del desafío del Challenge Back End de una API REST usando Spring Boot para el Foro Alura,
+Repositorio de la resolución del desafío del Challenge Back End de una API REST usando Spring para el Foro Alura,
 impartido por el Programa Oracle One en coordinación con Alura Latinoamérica.
 
 ✔️ **Historia**
@@ -17,9 +17,11 @@ este mágico lugar está lleno de mucho aprendizaje y de colaboración entre alu
 Ya sabemos para que sirve el foro y sabemos cómo se ve, pero ¿sabemos cómo funciona por detrás? Es decir ¿dónde se almacenan las informaciones? ¿cómo se tratan esos datos para que se relacione un tópico con una respuesta, o como se relacionan los usuarios con las respuestas de un tópico?
 
 ✔️ **Objetivo**
+
 Alura solicita replicar a nivel de back end el proceso para manejar las interacciones de los alumnos con el foro, y para lo cual se creó una API REST usando Spring.
 
 ✔️ **Requisitos**
+
 Nuestra API va a centrarse específicamente en los tópicos, y debe permitir a los usuarios:
 
 - Crear un nuevo tópico
@@ -31,6 +33,7 @@ Nuestra API va a centrarse específicamente en los tópicos, y debe permitir a l
 Lo anterior conocido comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) para lo cual se utilizará un framework Spring Boot y un modelo de arquitectura de software conocido como REST.
 
 ✔️ **Resultado**
+
 Creación de la API REST con las siguientes funcionalidades
 
 - API con rutas implementadas siguiendo las mejores prácticas del modelo REST;
@@ -47,9 +50,11 @@ Creación de la API REST con las siguientes funcionalidades
   - [Spring Security](https://start.spring.io/)
   - [Token JWT](https://jwt.io/)
 
-<a href="https://www.linkedin.com/in/manuel-estevez-perfil/"><img src="imgRepositorio/linkedinlogo.svg"></a>
+## Autor
 
-[Manuel Estevez (manueletz)](https://github.com/manueletz) 
+<a href="https://www.linkedin.com/in/manuel-estevez-perfil/"><img src="imagenesRepositorio/linkedinlogo.svg"></a>
+
+[Manuel Estevez (manueletz)](https://github.com/manueletz)
 
 
 💙 Alura Latam
