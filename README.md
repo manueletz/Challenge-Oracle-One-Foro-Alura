@@ -22,7 +22,7 @@ Alura solicita replicar a nivel de back end el proceso para manejar las interacc
 
 ✔️ **Requisitos**
 
-Nuestra API va a centrarse específicamente en los tópicos, y debe permitir a los usuarios:
+Nuestra API se centra específicamente en los tópicos, y debe permitir a los usuarios:
 
 - Crear un nuevo tópico
 - Mostrar todos los tópicos creados
@@ -36,9 +36,9 @@ Lo anterior conocido comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) para l
 
 Creación de la API REST con las siguientes funcionalidades
 
-- API con rutas implementadas siguiendo las mejores prácticas del modelo REST;
-- Validaciones realizadas según reglas de negócio;
-- Implementación de una base de datos para la persistencia de la información;
+- API con rutas implementadas siguiendo las mejores prácticas del modelo REST
+- Validaciones realizadas según reglas de negócio
+- Implementación de una base de datos para la persistencia de la información
 
 
 - ### Tecnologías utilizadas:
