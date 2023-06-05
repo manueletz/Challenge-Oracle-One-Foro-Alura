@@ -15,10 +15,10 @@ import java.util.List;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+//@Getter
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@EqualsAndHashCode(of = "id")
 public class Topico {
 
 	@Id
@@ -36,11 +36,11 @@ public class Topico {
     private StatusTopico status = StatusTopico.NO_RESPONDIDO;
 
 	@ManyToOne
-	@JoinColumn(name = "usuario_id", nullable = false)
+	@JoinColumn(name = "id_usuario", nullable = false)
     private Usuario autor;
 
     @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "curso_id")
+	@JoinColumn(name = "id_curso")
     private Curso curso;
 
 	@Transient
@@ -49,7 +49,7 @@ public class Topico {
 	public Topico(String titulo, String mensaje, Curso curso) {
 		this.titulo = titulo;
 		this.mensaje = mensaje;
-		//this.curso = curso;
+		this.curso = curso;
 	}
 
 	public Topico(DatosRegistroTopico datosRegistroTopico) {

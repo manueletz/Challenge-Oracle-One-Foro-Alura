@@ -3,13 +3,17 @@ package com.alura.controller;
 import com.alura.modelo.DatosRegistroTopico;
 import com.alura.modelo.Topico;
 import com.alura.repository.TopicoRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/topico")
+@RequiredArgsConstructor
 public class TopicoController {
 
     @Autowired
@@ -26,6 +30,7 @@ public class TopicoController {
         return topicoRepository.save(topico);
     }
     */
+
 
     @PostMapping
     public void agregar(@RequestBody DatosRegistroTopico datosRegistroTopico){

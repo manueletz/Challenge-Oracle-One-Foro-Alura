@@ -1,22 +1,39 @@
 package com.alura.modelo;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "cursos")
 @Entity(name = "Curso")
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Curso {
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
 	private String nombre;
 	private String categoria;
 
+	@OneToMany(mappedBy = "curso",cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Topico> topicos = new ArrayList<>();
+
+	/*
 	public Curso(String nombre, String categoria) {
 		this.nombre = nombre;
 		this.categoria = categoria;
 	}
-	
+	 */
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -42,6 +59,7 @@ public class Curso {
 		return true;
 	}
 
+
 	public Long getId() {
 		return id;
 	}
@@ -65,5 +83,7 @@ public class Curso {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+
+
 
 }
