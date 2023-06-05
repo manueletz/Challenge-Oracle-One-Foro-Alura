@@ -1,0 +1,16 @@
+Carpeta Principal
+Foro Alura
+
+listar_topicos
+get
+http://localhost:8080/topico
+
+registro_topico
+post
+http://localhost:8080/topico
+{
+	"titulo": "Problemas con curso de sql",
+	"mensaje": "Tengo dudas de como crear una llave foranea",
+	"curso": 2,
+	"autor": 2
+}

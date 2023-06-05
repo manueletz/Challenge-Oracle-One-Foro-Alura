@@ -2,35 +2,62 @@ package com.alura.modelo;
 
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Table(name = "topicos")
+@Entity(name = "Topico")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Topico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
+	@NotNull
 	private String titulo;
+	@NotNull
 	private String mensaje;
+	@NotNull
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
-	private StatusTopico status = StatusTopico.NO_RESPONDIDO;
-	private Usuario autor;
-	private Curso curso;
-	private List<Respuesta> respuestas = new ArrayList<>();
+
+	@Enumerated(EnumType.STRING)
+    private StatusTopico status = StatusTopico.NO_RESPONDIDO;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario autor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "curso_id")
+    private Curso curso;
+
+	@Transient
+    private List<Respuesta> respuestas = new ArrayList<>();
 
 	public Topico(String titulo, String mensaje, Curso curso) {
 		this.titulo = titulo;
 		this.mensaje = mensaje;
-		this.curso = curso;
+		//this.curso = curso;
+	}
+
+	public Topico(DatosRegistroTopico datosRegistroTopico) {
+		this.titulo = datosRegistroTopico.titulo();
+		this.mensaje = datosRegistroTopico.mensaje();
+		this.curso = datosRegistroTopico.curso();
+		this.autor = datosRegistroTopico.autor();
+		//this.status = StatusTopico.NO_RESPONDIDO;
 	}
 
 	@Override

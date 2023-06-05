@@ -1,10 +1,11 @@
 package com.alura.repository;
 
-import com.alura.modelo.Topico;
-import org.springframework.stereotype.Repository;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.alura.modelo.Topico;
 
 @Repository
 public interface TopicoRepository extends JpaRepository<Topico, Long>{

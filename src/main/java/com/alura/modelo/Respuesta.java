@@ -1,5 +1,8 @@
 package com.alura.modelo;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 import java.time.LocalDateTime;
 
 public class Respuesta {
@@ -8,6 +11,9 @@ public class Respuesta {
 	private String mensaje;
 	private Topico topico;
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id", nullable = false)
 	private Usuario autor;
 	private Boolean solucion = false;
 
