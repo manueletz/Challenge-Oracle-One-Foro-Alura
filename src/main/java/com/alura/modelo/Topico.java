@@ -2,16 +2,14 @@ package com.alura.modelo;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
@@ -35,10 +33,12 @@ public class Topico {
 	@Enumerated(EnumType.STRING)
     private StatusTopico status = StatusTopico.NO_RESPONDIDO;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_usuario", nullable = false)
     private Usuario autor;
 
+	@JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_curso")
     private Curso curso;
@@ -52,12 +52,17 @@ public class Topico {
 		this.curso = curso;
 	}
 
+	/*
 	public Topico(DatosRegistroTopico datosRegistroTopico) {
 		this.titulo = datosRegistroTopico.titulo();
 		this.mensaje = datosRegistroTopico.mensaje();
 		this.curso = datosRegistroTopico.curso();
-		this.autor = datosRegistroTopico.autor();
+		this.autor = datosRegistroTopico.usuario();
 		//this.status = StatusTopico.NO_RESPONDIDO;
+	}
+	*/
+
+	public Topico(){
 	}
 
 	@Override
@@ -147,6 +152,21 @@ public class Topico {
 
 	public void setRespuestas(List<Respuesta> respuestas) {
 		this.respuestas = respuestas;
+	}
+
+	public void actualizarDatos(DatosActualizarTopico datosActualizarTopico) {
+		if (datosActualizarTopico.titulo() !=null) {
+			this.titulo = datosActualizarTopico.titulo();
+		}
+		if (datosActualizarTopico.mensaje() !=null) {
+			this.mensaje = datosActualizarTopico.mensaje();
+		}
+		if (datosActualizarTopico.id_curso() !=null) {
+			this.curso.setId(datosActualizarTopico.id_curso());
+		}
+		if (datosActualizarTopico.id_usuario() !=null) {
+			this.autor.setId(datosActualizarTopico.id_usuario());
+		}
 	}
 
 }
