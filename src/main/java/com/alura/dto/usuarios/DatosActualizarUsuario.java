@@ -16,7 +16,10 @@ public record DatosActualizarUsuario(
         String email,
 
         @NotBlank
-        String contrasena) {
+        String contrasena,
+
+        @NotNull
+        Boolean activo) {
 }
 
 

@@ -45,18 +45,8 @@ public class UsuarioController {
 
     @PostMapping
     public void agregar(@RequestBody @Valid DatosRegistroUsuario datosRegistroUsuario){
-
-        Usuario usuario = new Usuario();
-
-        usuario.setNombre(datosRegistroUsuario.nombre());
-        usuario.setEmail(datosRegistroUsuario.email());
-        usuario.setContrasena(datosRegistroUsuario.contrasena());
-
-        System.out.println(usuario);
-
+        Usuario usuario = new Usuario(datosRegistroUsuario);
         usuarioRepository.save(usuario);
-        System.out.println("fin de agregar en Usuario Controller");
-
     }
 
     @PutMapping
@@ -67,11 +57,22 @@ public class UsuarioController {
         usuario.actualizarDatos(datosActualizarUsuario);
     }
 
+    //DELETE EN BASE DE DATOS
+    /*
     @DeleteMapping("/{id}")
     @Transactional
     public void eliminarUsuario(@PathVariable Long id){
         Usuario usuario = usuarioRepository.getReferenceById(id);
         usuarioRepository.delete(usuario);
+    }
+    */
+
+    //DELETE LOGICO
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void eliminarUsuario(@PathVariable Long id){
+        Usuario usuario = usuarioRepository.getReferenceById(id);
+        usuario.desactivarUsuario();
     }
 
 }

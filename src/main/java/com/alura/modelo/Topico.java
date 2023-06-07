@@ -3,8 +3,12 @@ package com.alura.modelo;
 
 
 import com.alura.dto.topico.DatosActualizarTopico;
+import com.alura.dto.topico.DatosRegistroTopico;
+import com.alura.repository.CursoRepository;
+import com.alura.repository.UsuarioRespository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -47,23 +51,26 @@ public class Topico {
 	@Transient
     private List<Respuesta> respuestas = new ArrayList<>();
 
+	@Transient
+	private CursoRepository cursoRepository;
+
+	@Transient
+	private UsuarioRespository usuarioRespository;
+
 	public Topico(String titulo, String mensaje, Curso curso) {
 		this.titulo = titulo;
 		this.mensaje = mensaje;
 		this.curso = curso;
 	}
 
-	/*
-	public Topico(DatosRegistroTopico datosRegistroTopico) {
+	public Topico(){
+	}
+
+	public Topico(DatosRegistroTopico datosRegistroTopico, Curso curso, Usuario usuario) {
 		this.titulo = datosRegistroTopico.titulo();
 		this.mensaje = datosRegistroTopico.mensaje();
-		this.curso = datosRegistroTopico.curso();
-		this.autor = datosRegistroTopico.usuario();
-		//this.status = StatusTopico.NO_RESPONDIDO;
-	}
-	*/
-
-	public Topico(){
+		this.curso = curso;
+		this.autor = usuario;
 	}
 
 	@Override

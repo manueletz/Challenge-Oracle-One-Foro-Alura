@@ -1,6 +1,7 @@
 package com.alura.modelo;
 
 import com.alura.dto.usuarios.DatosActualizarUsuario;
+import com.alura.dto.usuarios.DatosRegistroUsuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,14 +24,18 @@ public class Usuario {
 	private String nombre;
 	private String email;
 	private String contrasena;
+	private Boolean activo;
 
-	@OneToMany(mappedBy = "autor")
-	//@OneToMany(mappedBy = "autor",cascade = CascadeType.ALL, orphanRemoval = true)
+	//@OneToMany(mappedBy = "autor")
+	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Topico> topicos = new ArrayList<>();
 
-    public Usuario(Long id){
-		this.id = id;
-    }
+	public Usuario(DatosRegistroUsuario datosRegistroUsuario) {
+		this.nombre = datosRegistroUsuario.nombre();
+		this.email = datosRegistroUsuario.email();
+		this.contrasena = datosRegistroUsuario.contrasena();
+		this.activo = true;
+	}
 
     @Override
 	public int hashCode() {
@@ -99,5 +104,12 @@ public class Usuario {
 		if (datosActualizarUsuario.contrasena() !=null) {
 			this.contrasena = datosActualizarUsuario.contrasena();
 		}
+		if (datosActualizarUsuario.activo() != null) {
+			this.contrasena = datosActualizarUsuario.contrasena();
+		}
     }
+
+	public void desactivarUsuario() {
+		this.activo = false;
+	}
 }

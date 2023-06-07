@@ -1,6 +1,7 @@
 package com.alura.modelo;
 
 import com.alura.dto.cursos.DatosActualizarCurso;
+import com.alura.dto.cursos.DatosRegistroCurso;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,13 +28,10 @@ public class Curso {
 	@OneToMany(mappedBy = "curso",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Topico> topicos = new ArrayList<>();
 
-	/*
-	public Curso(String nombre, String categoria) {
-		this.nombre = nombre;
-		this.categoria = categoria;
-	}
-	 */
-
+    public Curso(DatosRegistroCurso datosRegistroCurso) {
+		this.nombre = datosRegistroCurso.nombre();
+		this.categoria = datosRegistroCurso.categoria();
+    }
 
 	@Override
 	public int hashCode() {
@@ -59,7 +57,6 @@ public class Curso {
 			return false;
 		return true;
 	}
-
 
 	public Long getId() {
 		return id;

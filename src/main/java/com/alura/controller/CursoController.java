@@ -39,24 +39,14 @@ public class CursoController {
 
     @PostMapping
     public void agregar(@RequestBody @Valid DatosRegistroCurso datosRegistroCurso){
-
-        Curso curso = new Curso();
-
-        curso.setNombre(datosRegistroCurso.nombre());
-        curso.setCategoria(datosRegistroCurso.categoria());
-
-        System.out.println(curso);
-
+        Curso curso = new Curso(datosRegistroCurso);
         cursoRepository.save(curso);
-        System.out.println("fin de agregar en Curso Controller");
-
     }
 
     @PutMapping
     @Transactional
     public void actualizarCurso(@RequestBody @Valid DatosActualizarCurso datosActualizarCurso){
         Curso curso = cursoRepository.getReferenceById(datosActualizarCurso.id());
-        System.out.println(curso);
         curso.actualizarDatos(datosActualizarCurso);
     }
 
