@@ -2,14 +2,15 @@ package com.alura.modelo;
 
 
 
+import com.alura.dto.topico.DatosActualizarTopico;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
@@ -154,7 +155,7 @@ public class Topico {
 		this.respuestas = respuestas;
 	}
 
-	public void actualizarDatos(DatosActualizarTopico datosActualizarTopico) {
+	public void actualizarDatos(@Valid DatosActualizarTopico datosActualizarTopico) {
 		if (datosActualizarTopico.titulo() !=null) {
 			this.titulo = datosActualizarTopico.titulo();
 		}

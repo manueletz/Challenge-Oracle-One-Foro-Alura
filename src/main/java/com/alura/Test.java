@@ -1,9 +1,5 @@
 package com.alura;
 
-import com.alura.modelo.DatosRegistroTopico;
-import com.alura.modelo.Topico;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Test {

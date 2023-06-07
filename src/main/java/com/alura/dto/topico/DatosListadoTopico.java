@@ -1,4 +1,6 @@
-package com.alura.modelo;
+package com.alura.dto.topico;
+
+import com.alura.modelo.Topico;
 
 import java.time.LocalDateTime;
 

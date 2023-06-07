@@ -1,5 +1,6 @@
 package com.alura.modelo;
 
+import com.alura.dto.cursos.DatosActualizarCurso;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -85,5 +86,12 @@ public class Curso {
 	}
 
 
-
+	public void actualizarDatos(DatosActualizarCurso datosActualizarCurso) {
+		if (datosActualizarCurso.nombre() !=null) {
+			this.nombre = datosActualizarCurso.nombre();
+		}
+		if (datosActualizarCurso.categoria() !=null) {
+			this.categoria = datosActualizarCurso.categoria();
+		}
+	}
 }

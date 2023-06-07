@@ -1,5 +1,9 @@
 package com.alura.controller;
 
+import com.alura.dto.topico.DatosActualizarTopico;
+import com.alura.dto.topico.DatosCompletosTopico;
+import com.alura.dto.topico.DatosListadoTopico;
+import com.alura.dto.topico.DatosRegistroTopico;
 import com.alura.modelo.*;
 import com.alura.repository.CursoRepository;
 import com.alura.repository.TopicoRepository;
@@ -11,12 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/topicos")
@@ -49,13 +49,12 @@ public class TopicoController {
         return topicoRepository.findAll(paginacion).map(DatosListadoTopico::new);
     }
 
-
-    /*
-    @PostMapping
-    public Topico agregar(@RequestBody Topico topico){
-        return topicoRepository.save(topico);
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosCompletosTopico> listarTopicoPorId(@PathVariable Long id){
+        Topico topico = topicoRepository.getReferenceById(id);
+        DatosCompletosTopico datosCompletosTopico= new DatosCompletosTopico(topico);
+        return ResponseEntity.ok(datosCompletosTopico);
     }
-    */
 
     @PostMapping
     public void agregar(@RequestBody @Valid DatosRegistroTopico datosRegistroTopico){
@@ -97,6 +96,13 @@ public class TopicoController {
         topico.getAutor().setId(id_usuario);
 
          */
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void eliminarMedico(@PathVariable Long id){
+        Topico topico = topicoRepository.getReferenceById(id);
+        topicoRepository.delete(topico);
     }
 
 }

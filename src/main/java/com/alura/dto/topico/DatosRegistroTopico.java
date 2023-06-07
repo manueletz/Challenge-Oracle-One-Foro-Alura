@@ -1,12 +1,12 @@
-package com.alura.modelo;
+package com.alura.dto.topico;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
-public record DatosActualizarTopico(
-        @NotNull
-        Long id,
+import java.time.LocalDateTime;
 
+public record DatosRegistroTopico(
         @NotBlank
         String titulo,
 

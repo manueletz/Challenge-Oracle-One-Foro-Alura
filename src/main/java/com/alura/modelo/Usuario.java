@@ -1,5 +1,6 @@
 package com.alura.modelo;
 
+import com.alura.dto.usuarios.DatosActualizarUsuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -88,4 +89,15 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 
+    public void actualizarDatos(DatosActualizarUsuario datosActualizarUsuario) {
+		if (datosActualizarUsuario.nombre() !=null) {
+			this.nombre = datosActualizarUsuario.nombre();
+		}
+		if (datosActualizarUsuario.email() !=null) {
+			this.email = datosActualizarUsuario.email();
+		}
+		if (datosActualizarUsuario.contrasena() !=null) {
+			this.contrasena = datosActualizarUsuario.contrasena();
+		}
+    }
 }
