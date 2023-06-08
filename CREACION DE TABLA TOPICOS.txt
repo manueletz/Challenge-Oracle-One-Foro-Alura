@@ -129,3 +129,19 @@ select u1_0.id,u1_0.contrasena,u1_0.email,u1_0.nombre from usuarios u1_0 where u
 select c1_0.id,c1_0.categoria,c1_0.nombre from cursos c1_0 where c1_0.id=1;
 
 select t1_0.id_curso,t1_0.id,a1_0.id,a1_0.contrasena,a1_0.email,a1_0.nombre,t1_0.fecha_creacion,t1_0.mensaje,t1_0.status,t1_0.titulo from topicos t1_0 left join usuarios a1_0 on a1_0.id=t1_0.id_usuario where t1_0.id_curso=1;
+
+
+browserling bcrypt
+https://www.browserling.com/tools/bcrypt
+
+hash
+123456
+$2a$10$2vA3kR.GOyGyjOyFNDWpf.tvcAgwQoxVFkq5Pq.jq.gSHVRC6zF7.
+
+jwt
+https://github.com/auth0/java-jwt
+
+
+swagger
+https://www.oscarblancarteblog.com/2020/08/28/documentar-un-api-rest-con-swagger-y-spring-boot/
+https://www.youtube.com/watch?v=-SzKqwgPTyk
