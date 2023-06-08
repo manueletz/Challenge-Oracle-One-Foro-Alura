@@ -5,10 +5,9 @@ package com.alura.modelo;
 import com.alura.dto.topico.DatosActualizarTopico;
 import com.alura.dto.topico.DatosRegistroTopico;
 import com.alura.repository.CursoRepository;
-import com.alura.repository.UsuarioRespository;
+import com.alura.repository.UsuarioRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -55,7 +54,7 @@ public class Topico {
 	private CursoRepository cursoRepository;
 
 	@Transient
-	private UsuarioRespository usuarioRespository;
+	private UsuarioRepository usuarioRepository;
 
 	public Topico(String titulo, String mensaje, Curso curso) {
 		this.titulo = titulo;

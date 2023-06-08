@@ -1,17 +1,11 @@
 package com.alura.controller;
 
-import com.alura.dto.cursos.DatosActualizarCurso;
-import com.alura.dto.cursos.DatosCompletosCurso;
-import com.alura.dto.cursos.DatosListadoCurso;
-import com.alura.dto.cursos.DatosRegistroCurso;
 import com.alura.dto.usuarios.DatosActualizarUsuario;
 import com.alura.dto.usuarios.DatosCompletosUsuario;
 import com.alura.dto.usuarios.DatosListadoUsuario;
 import com.alura.dto.usuarios.DatosRegistroUsuario;
-import com.alura.modelo.Curso;
 import com.alura.modelo.Usuario;
-import com.alura.repository.CursoRepository;
-import com.alura.repository.UsuarioRespository;
+import com.alura.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,7 +23,9 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     @Autowired
-    public UsuarioRespository usuarioRepository;
+    public UsuarioRepository usuarioRepository;
+
+    private AuthenticationManager authenticationManager;
 
     //CON PAGINACION
     @GetMapping

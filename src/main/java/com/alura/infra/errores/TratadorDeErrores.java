@@ -1,4 +1,4 @@
-package com.alura.infra;
+package com.alura.infra.errores;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -27,6 +27,7 @@ public class TratadorDeErrores {
             this(error.getField(), error.getDefaultMessage());
         }
     }
+
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity tratarError400(DataIntegrityViolationException e){
         var errores = e.getMessage();

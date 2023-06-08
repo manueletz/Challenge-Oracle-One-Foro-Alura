@@ -4,7 +4,7 @@ import com.alura.dto.topico.*;
 import com.alura.modelo.*;
 import com.alura.repository.CursoRepository;
 import com.alura.repository.TopicoRepository;
-import com.alura.repository.UsuarioRespository;
+import com.alura.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/topicos")
@@ -31,7 +30,7 @@ public class TopicoController {
     public CursoRepository cursoRepository;
 
     @Autowired
-    public UsuarioRespository usuarioRespository;
+    public UsuarioRepository usuarioRepository;
 
 //    @GetMapping
 //    public List<Topico> leer(){
@@ -54,7 +53,8 @@ public class TopicoController {
     @GetMapping("/{id}")
     public ResponseEntity<DatosCompletosTopico> listarTopicoPorId(@PathVariable Long id){
         Topico topico = topicoRepository.getReferenceById(id);
-        DatosCompletosTopico datosCompletosTopico= new DatosCompletosTopico(topico);
+        DatosCompletosTopico datosCompletosTopico= new DatosCompletosTopico(topico.getId(), topico.getTitulo(),topico.getMensaje(),
+                topico.getfechaCreacion(), topico.getStatus().toString(), topico.getAutor().getNombre(), topico.getCurso().getNombre());
         return ResponseEntity.ok(datosCompletosTopico);
     }
 
@@ -66,7 +66,7 @@ public class TopicoController {
         Long id_usuario = datosRegistroTopico.id_usuario();
 
         Curso curso = cursoRepository.findAllById(id_curso);
-        Usuario usuario = usuarioRespository.findAllById(id_usuario);
+        Usuario usuario = usuarioRepository.findAllById(id_usuario);
 
         Topico topico = new Topico(datosRegistroTopico, curso, usuario);
         topicoRepository.save(topico);
