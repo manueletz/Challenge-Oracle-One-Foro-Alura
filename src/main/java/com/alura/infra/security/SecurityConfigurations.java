@@ -22,6 +22,24 @@ public class SecurityConfigurations {
     @Autowired
     private SecurityFilter securityFilter;
 
+    /*
+    //Swagger sin autorizacion para ver la documentacion
+    //Debe colocarse antes del login
+    @Bean
+    public SecurityFilterChain securityFilterChainSwagger(HttpSecurity httpSecurity) throws Exception {
+        return httpSecurity.csrf().disable().sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().authorizeRequests()
+                .requestMatchers("/v3/api-docs/**","/swagger-ui/**","/swagger-ui.html")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
+    }
+    */
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf().disable().sessionManagement()
@@ -46,4 +64,5 @@ public class SecurityConfigurations {
     public PasswordEncoder PasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
 }

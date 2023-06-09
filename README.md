@@ -50,6 +50,14 @@ Creación de la API REST con las siguientes funcionalidades
   - [Spring Security](https://start.spring.io/)
   - [Token JWT](https://jwt.io/)
 
+✔️ **Documentacion en Swagger**
+
+Para documentar las peticiones permitidas se utilizó Swagger
+
+http://localhost:8080/swagger-ui/index.html
+
+![img documentacion swagger](imagenesRepositorio/documentacion-swagger.png)
+
 ## Autor
 
 <a href="https://www.linkedin.com/in/manuel-estevez-perfil/"><img src="imagenesRepositorio/linkedinlogo.svg"></a>
