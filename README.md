@@ -63,7 +63,9 @@ http://localhost:8080/swagger-ui/index.html
 
 ![img documentacion swagger](imagenesRepositorio/documentacion-swagger.png)
 
-## Insignia de reconocimiento por completar el desafío de Foro - Alura con Java - Spring Boot
+✔️ **Insignia**
+
+Insignia por reconocimiento por haber completado el desafío del Foro Alura con Java - Spring Boot y MySql**
 
 ![insignia de reconocimiento](imagenesRepositorio/insignia-Spring-Boot-Prancheta.png)
 
