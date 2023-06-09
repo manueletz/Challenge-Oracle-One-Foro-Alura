@@ -63,6 +63,10 @@ http://localhost:8080/swagger-ui/index.html
 
 ![img documentacion swagger](imagenesRepositorio/documentacion-swagger.png)
 
+## Insignia de reconocimiento por completar el desafío de Foro - Alura con Java - Spring Boot
+
+![insignia de reconocimiento](imagenesRepositorio/insignia-Spring-Boot-Prancheta.png)
+
 ## Autor
 
 <a href="https://www.linkedin.com/in/manuel-estevez-perfil/"><img src="imagenesRepositorio/linkedinlogo.svg"></a>
