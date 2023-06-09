@@ -50,7 +50,13 @@ Creación de la API REST con las siguientes funcionalidades
   - [Spring Security](https://start.spring.io/)
   - [Token JWT](https://jwt.io/)
 
-✔️ **Documentacion en Swagger**
+✔️ **Testeo de los request**
+
+Para testear los diferentes request permitidos de la api rest se utilizó la herramienta Insomnia
+
+![img documentacion swagger](imagenesRepositorio/request-insomnia.png)
+
+✔️ **Documentación en Swagger**
 
 Para documentar las peticiones permitidas se utilizó Swagger
 
